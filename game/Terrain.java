@@ -1,14 +1,13 @@
 import java.util.Random; 
 public class Terrain {
-    char[] symbols = {"*","o","-"};
+    char[] symbols = {'*','o','-'};
     char[][] map =
-     { {'\\','0','0','0','/'};
-       {'3','\\','0','/','1'};
-       {'3','3','X','1','1'};
-       {'3','/','2','\\','1'};
-       {'/','2','2','2','\\'};
+     {{'\\','0','0','0','/'},
+       {'3','\\','0','/','1'},
+       {'3','3','X','1','1'},
+       {'3','/','2','\\','1'},
+       {'/','2','2','2','\\'}};
 
-    }
     private void chooseChunk (char[]type){
         Random random = new Random();
         for ( int i = 0; i < type.length ; i++ ){
@@ -47,7 +46,7 @@ public class Terrain {
         }
         if(type[1] == type[2]){
             map[3][3] = type[1];
-            map[4][3] = type[1];
+            map[4][4] = type[1];
         }
         if(type[2] == type[3]){
             map[3][1] = type[2];
@@ -77,7 +76,7 @@ public class Terrain {
             
         }
     }
-    public void main (String[] args){
+    public static void main (String[] args){
         Terrain terrain = new Terrain();
         terrain.generate();
         terrain.print();
